@@ -76,15 +76,18 @@ public class Task1 {
     public static int[] enterTheNumber() {
         Scanner s = new Scanner(System.in);
         System.out.print("Enter the numbers via space:");
+
         String x = s.nextLine();
         String[] str = x.split(" ");
         int[] array = new int[str.length];
         try {
             for (int i = 0; i < str.length; i++) {
                 array[i] = Integer.parseInt(str[i]);
+                return array;
             }
         } catch (NumberFormatException ex) {
             System.out.println("Invalid format");
+            enterTheNumber();
         }
         return array;
     }
@@ -92,26 +95,28 @@ public class Task1 {
     /**
      * Subtask 6.1
      */
-    public static void getOddAndEvenNumbers() {
-        int[] array = enterTheNumber();
-        System.out.println("Odd numbers:");
+    public static void getOddAndEvenNumbers(int[] array1) {
+        int[] array = array1.clone();
+        System.out.print("Odd numbers:");
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 != 0)
-                System.out.print(array[i]);
+                System.out.print(array[i] + " ");
         }
-        System.out.println("Even numbers:");
+        System.out.println();
+        System.out.print("Even numbers: ");
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0)
-                System.out.print(array[i]);
+                System.out.print(array[i] + " ");
         }
+        System.out.println();
     }
 
     /**
      * Subtask 6.2
      */
 
-    public static void getMaxAndMin() {
-        int[] array = enterTheNumber();
+    public static void getMaxAndMin(int[] array1) {
+        int[] array = array1.clone();
         int min = array[0], max = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] < min) {
@@ -126,43 +131,46 @@ public class Task1 {
     /**
      * Subtask 6.3
      */
-    public static void verifyDivisionBySevenAndFive() {
-        int[] array = enterTheNumber();
-        System.out.println("numbers that divide by 3 and 5");
+    public static void verifyDivisionBySevenAndFive(int[] array1) {
+        int[] array = array1.clone();
+        System.out.print("numbers that divide by 7 and 5: ");
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 7 == 0 && array[i] % 5 == 0)
-                System.out.println(array[i]);
+                System.out.print(array[i] + " ");
         }
+        System.out.println();
 
     }
 
     /**
      * Subtask 6.4
      */
-    public static void verifyDivisionByThreeOrNine() {
-        int[] array = enterTheNumber();
-        System.out.println("numbers that divide by 3 and 9");
+    public static void verifyDivisionByThreeOrNine(int[] array1) {
+        int[] array = array1.clone();
+        System.out.print("numbers that divide by 3 or 9: ");
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 3 == 0 || array[i] % 9 == 0)
-                System.out.println(array[i]);
+                System.out.print(array[i] + " ");
         }
+        System.out.println();
     }
 
 
     /**
      * Subtask 6.5
      */
-    public static void displayThreeDigitsNumbersWithDifDigits() {
-        int[] array = enterTheNumber();
-        for (int i = 0; i < array.length; i++){
+    public static void displayThreeDigitsNumbersWithDifDigits(int[] array1) {
+        int[] array = array1.clone();
+        System.out.print("Three-digit numbers with unique digits: ");
+        for (int i = 0; i < array.length; i++) {
             if (isNumberIsThreeAndHasntSameDigits(array[i])) {
-                System.out.println(array[i]);
+                System.out.print(array[i] + " ");
             }
         }
+        System.out.println();
     }
 
     /**
-     *
      * @param number number to verify
      * @return
      */
@@ -175,7 +183,6 @@ public class Task1 {
     }
 
     /**
-     *
      * @param number number to parse
      * @param length count of digits
      * @return array of digits
@@ -192,17 +199,18 @@ public class Task1 {
     /**
      * Subtask 6.6
      */
-    public static void displayHappyNumber() {
-        int[] array = enterTheNumber();
+    public static void displayHappyNumber(int[] array1) {
+        int[] array = array1.clone();
+        System.out.print("Happy numbers: ");
         for (int i = 0; i < array.length; i++) {
-            if(isHappyNumber(array[i])) {
-                System.out.println(array[i]);
+            if (isHappyNumber(array[i])) {
+                System.out.println(array[i] +" ");
             }
         }
+        System.out.println();
     }
 
     /**
-     *
      * @param number to verify on 'happiness'
      * @return
      */
@@ -223,11 +231,12 @@ public class Task1 {
     /**
      * Subtask 6.6
      */
-    public static void displayElements() {
-        int[] array = enterTheNumber();
+    public static void displayElements(int[] array1) {
+        int[] array = array1.clone();
+        System.out.println("Elements that are equal to half the sum of adjacent elements: ");
         int exp = 0;
-        for (int i = 1; i < array.length - 1; i++){
-            exp = (array[i-1] + array[i+1]) / 2;
+        for (int i = 1; i < array.length - 1; i++) {
+            exp = (array[i - 1] + array[i + 1]) / 2;
             if (array[i] == exp) {
                 System.out.print(array[i] + " ");
             }
@@ -236,13 +245,32 @@ public class Task1 {
     }
 
     public static void main(String[] args) {
-        getOddAndEvenNumbers();
-        getMaxAndMin();
-        verifyDivisionBySevenAndFive();
-        verifyDivisionByThreeOrNine();
-        displayThreeDigitsNumbersWithDifDigits();
-        displayHappyNumber();
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the numbers via space:");
+        try {
+            String x = s.nextLine();
+            String[] str = x.split(" ");
+            int[] array = new int[str.length];
+            for (int i = 0; i < str.length; i++) {
+                array[i] = Integer.parseInt(str[i]);
+            }
+            getOddAndEvenNumbers(array);
+            getMaxAndMin(array);
+            verifyDivisionBySevenAndFive(array);
+            verifyDivisionByThreeOrNine(array);
+            displayThreeDigitsNumbersWithDifDigits(array);
+            displayHappyNumber(array);
+            displayElements(array);
+
+        } catch (NumberFormatException ex) {
+            System.out.println("Invalid format");
+            enterTheNumber();
+        }
+
     }
 
+
 }
+
+
 

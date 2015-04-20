@@ -755,36 +755,67 @@ public class Task2 {
 
         System.out.println("-----Subtask 1. Найти самое короткое и самое длинное число. Вывести найденные числа и их длину.");
         findShortestAndLongestNumber(enterTheNumbers());
+
+
         System.out.println("-----Subtask 2. Упорядочить и вывести числа в порядке возрастания значений их длины.");
         displayByLength(enterTheNumbers());
+
+
         System.out.println("-----Subtask 3. Вывести на консоль те числа, длина которых меньше (больше) средней, а также длину.");
         displayNumbersWithLengthAboveAver(enterTheNumbers());
+
+
         System.out.println("-----Subtask 4. Найти число, в котором число различных цифр минимально. Если таких чисел несколько, найти первое из них.");
         findNumberWithMinDifferentSymbols(enterTheNumbers());
+
+
         System.out.println("-----Subtask 5. Найти количество чисел, содержащих только четные цифры, а среди них количество чисел с равным числом четных и нечетных цифр.");
         getQuantityOfEvenNumbers(enterTheNumbers());
+
+
         System.out.println("-----Subtask 6. Найти число, цифры в котором идут в строгом порядке возрастания. Если таких чисел несколько, найти первое из них.");
         findNumberWithDigitsInAsc(enterTheNumbers());
+
+
         System.out.println("-----Subtask 7. Найти число, состоящее только из различных цифр. Если таких чисел несколько, найти первое из них.");
         findNumberWithOnlyDifferentDigits(enterTheNumbers());
+
+
         System.out.println("-----Subtask 8. Вывести числа от 1 до k в виде матрицы N x N слева направо и сверху вниз.");
         printNumbersAsAMatrix();
+
+
         System.out.println("-----Subtask 9. Ввести с консоли n-размерность матрицы a [n] [n]. Задать значения элементов матрицы в интервале значений от -n до n с помощью датчика случайных чисел.");
         int[][] matrix = randomNumbersInTheInterval();
+
         System.out.println("-----Subtask 9.1. Упорядочить строки (столбцы) матрицы в порядке возрастания значений.");
         arrangeMatrixInAsc(matrix);
+
+
         System.out.println("-----Subtask 9.2. Выполнить циклический сдвиг заданной матрицы на k позиций вправо (влево, вверх, вниз).");
         shiftOfMatrix(matrix);
+
+
         System.out.println("-----Subtask 9.3. Найти и вывести наибольшее число возрастающих (убывающих) элементов матрицы, идущих подряд.");
         findQuantityOf(matrix);
+
+
         System.out.println("-----Subtask 9.4. Найти сумму элементов матрицы, расположенных между первым и вторым положительными элементами каждой строки.");
         findSumBetweenTwoPositiveNumbers(matrix);
+
+
         System.out.println("-----Subtask 9.5. Повернуть матрицу на 90 (180, 270) градусов против часовой стрелки.");
         rotateMatrix(matrix);
+
+
         System.out.println("-----Subtask 9.6. Построить матрицу, вычитая из элементов каждой строки матрицы ее среднее арифметическое.");
         printMatrixWithDiffAver(matrix);
+
+
         System.out.println("-----Subtask 9.7. Уплотнить матрицу, удаляя из нее строки и столбцы, заполненные нулями.");
         moveZeroToRight(matrix);
+
+
         System.out.println("-----Subtask 9.8. Преобразовать строки матрицы таким образом, чтобы элементы, равные нулю, располагались после всех остальных.");
         compress(matrix);
 
