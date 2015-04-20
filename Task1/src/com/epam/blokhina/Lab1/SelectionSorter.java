@@ -1,0 +1,74 @@
+package com.epam.blokhina.Lab1;
+
+import java.util.Arrays;
+
+/**
+ * Created by Yevheniia_Blokhina on 4/20/2015.
+ */
+public class SelectionSorter {
+    final static int SIZE = 11;
+
+    /**
+     * @return array of random numbers
+     */
+    public static int[] randomNumbersInTheInterval() {
+        int[] array = new int[SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            array[i] = (int) (Math.random() * (2 * SIZE + 1)) - SIZE;
+        }
+        return array;
+    }
+
+    /**
+     * initial Method
+     *
+     * @param arr1 to sort
+     */
+    public static void sort(int[] arr1) {
+        int[] arr = arr1.clone();
+
+        long startTime = System.nanoTime();
+        for (int barrier = 0; barrier < arr.length - 1; barrier++) {
+            for (int index = barrier + 1; index < arr.length; index++) {
+                if (arr[barrier] > arr[index]) {
+                    int tmp = arr[index];
+                    arr[index] = arr[barrier];
+                    arr[barrier] = tmp;
+                }
+            }
+        }
+        long endTime = System.nanoTime() - startTime;
+        System.out.println("Time for sort is: " + endTime + "ns");
+    }
+
+    /**
+     * modified sorting
+     *
+     * @param arr to sort
+     */
+    public static void selectionSort(int[] arr) {
+        long startTime = System.nanoTime();
+        for (int barrier = 0; barrier < arr.length; barrier++) {
+            int minIndex = barrier;
+            for (int index = barrier + 1; index < arr.length; index++) {
+                if (arr[index] < arr[minIndex]) {
+                    minIndex = index;
+                }
+            }
+            int tmp = arr[minIndex];
+            arr[minIndex] = arr[barrier];
+            arr[barrier] = tmp;
+        }
+        long endTime = System.nanoTime() - startTime;
+        System.out.println("Time for modified sort is: " + endTime + "ns");
+    }
+
+
+    public static void main(String[] args) {
+        int[] arr = randomNumbersInTheInterval();
+        sort(arr);
+        selectionSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
