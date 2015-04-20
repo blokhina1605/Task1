@@ -235,5 +235,14 @@ public class Task1 {
 
     }
 
+    public static void main(String[] args) {
+        getOddAndEvenNumbers();
+        getMaxAndMin();
+        verifyDivisionBySevenAndFive();
+        verifyDivisionByThreeOrNine();
+        displayThreeDigitsNumbersWithDifDigits();
+        displayHappyNumber();
+    }
+
 }
 
